@@ -1,5 +1,5 @@
-// GET
-fetch("https://vv2qx5zqb7.execute-api.us-east-1.amazonaws.com/Dev")
+// GET: Add to App.js in getRecord function
+fetch("your api gateway url after deploy")
     .then(res => res.json())
     .then(json => {      
     const records = json.map(record => record);      
@@ -8,8 +8,8 @@ fetch("https://vv2qx5zqb7.execute-api.us-east-1.amazonaws.com/Dev")
     });
 }); 
 
-// POST
-fetch("https://vv2qx5zqb7.execute-api.us-east-1.amazonaws.com/Dev", {
+// POST: Add to App.js in onSubmit function
+fetch("your api gateway url after deploy", {
     method: 'POST',
     headers: {
     'Accept': 'application/json',
@@ -18,8 +18,8 @@ fetch("https://vv2qx5zqb7.execute-api.us-east-1.amazonaws.com/Dev", {
     body: JSON.stringify({records: record, album, artist, date, imageUrl})
 });
 
-// PUT
-fetch("https://vv2qx5zqb7.execute-api.us-east-1.amazonaws.com/Dev", {
+// PUT: Copy code to editRecord.js in onSubmit function
+fetch("your api gateway url after deploy", {
     method: 'PUT',
     headers: {
         'Accept': 'application/json',
@@ -28,8 +28,8 @@ fetch("https://vv2qx5zqb7.execute-api.us-east-1.amazonaws.com/Dev", {
     body: JSON.stringify({records: id, record, album, artist, date, imageUrl})
 });
 
-// DELETE
-fetch("https://vv2qx5zqb7.execute-api.us-east-1.amazonaws.com/Dev", {
+// DELETE: Copy code to deleteRecord.js in deleteRecord function
+fetch("your api gateway url after deploy", {
     method: 'DELETE',
     headers: {
     'Accept': 'application/json',

@@ -5,6 +5,7 @@ class DeleteRecord extends Component {
 
   deleteRecord = (id) => {
     console.log('deleting Record: ', id);
+    // DELETE call goes here
   }
 
 	render() {

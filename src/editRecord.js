@@ -41,7 +41,10 @@ class EditRecord extends Component {
     
     onSubmit = () => {
         console.log('Submitted PUT update');
-        // const { id, record, album, artist, date, imageUrl } = this.state;
+        const { id, record, album, artist, date, imageUrl } = this.state;
+        
+        // PUT records call goes here
+
         this.handleClose();	
     }
 

@@ -70,6 +70,7 @@ class App extends Component {
 
   getRecords = () => {
     console.log('getting record');
+    // GET records call goes here
   }
 
   // handle changes in the form inputs
@@ -88,14 +89,7 @@ class App extends Component {
     const { records, record, album, artist, date, imageUrl } = this.state;
     const newRecord = { record, album, artist, date, imageUrl };
 
-    fetch("https://vv2qx5zqb7.execute-api.us-east-1.amazonaws.com/Dev", {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },      
-      body: JSON.stringify({records: record, album, artist, date, imageUrl})
-    });
+    // POST records call goes here
 
     this.setState({
       records: [...records, newRecord],
