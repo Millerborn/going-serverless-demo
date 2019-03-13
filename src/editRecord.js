@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import DialogForm from './dialogForm';
 import Button from '@material-ui/core/Button';
 
-import EditForm from './editForm';
+import EditForm from './Form/editForm';
+import DialogForm from './Form/dialogForm';
 
 class EditRecord extends Component {
 

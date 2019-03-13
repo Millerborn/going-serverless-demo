@@ -3,7 +3,7 @@ import logo from './vinyl-logo.svg';
 import './App.css';
 
 import EditRecord from './editRecord';
-import EditForm from './editForm';
+import EditForm from './Form/editForm';
 import DeleteRecord from './deleteRecord';
 
 import PropTypes from 'prop-types';
