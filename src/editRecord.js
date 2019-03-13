@@ -40,25 +40,12 @@ class EditRecord extends Component {
     }
     
     onSubmit = () => {
-
-        const { id, record, album, artist, date, imageUrl } = this.state;
-
-        fetch("https://vv2qx5zqb7.execute-api.us-east-1.amazonaws.com/Dev", {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },   
-            body: JSON.stringify({records: id, record, album, artist, date, imageUrl})
-        });
-
         console.log('Submitted PUT update');
-
+        // const { id, record, album, artist, date, imageUrl } = this.state;
         this.handleClose();	
     }
 
 	handleClose = () => {
-
 		this.setState({
 			open: false,
                 id: '',
@@ -67,34 +54,33 @@ class EditRecord extends Component {
 				artist: '',
 				date: '',
 				imageUrl: ''
-        });
-        
+        }); 
 	}
 
-		render() {
-		    const { state, open } = this.state;
-		return (
-			<div>
-				<Button color="primary" onClick={() => this.handleOpen(state)}>
-					Edit
-				</Button>
-				<DialogForm
-					open={open}
-					dialogTitle={'Edit Record'}
-					formId={'edit-action'}
-					formFields={
-						<EditForm
-							handleChange={this.handleChange}
-							newRecord={this.state}
-							editMode={true}
-						/>
-					}
-					onSubmit={this.onSubmit}
-					handleClose={this.handleClose}
-				/>
-			</div>
-		);
-  }
+    render() {
+        const { state, open } = this.state;
+        return (
+            <div>
+                <Button color="primary" onClick={() => this.handleOpen(state)}>
+                    Edit
+                </Button>
+                <DialogForm
+                    open={open}
+                    dialogTitle={'Edit Record'}
+                    formId={'edit-action'}
+                    formFields={
+                        <EditForm
+                            handleChange={this.handleChange}
+                            newRecord={this.state}
+                            editMode={true}
+                        />
+                    }
+                    onSubmit={this.onSubmit}
+                    handleClose={this.handleClose}
+                />
+            </div>
+        );
+    }
 }
 
 export default (EditRecord);

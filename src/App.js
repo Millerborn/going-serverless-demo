@@ -49,6 +49,7 @@ const styles = {
     backgroundColor: 'white',
     padding: 15,
     margin: 40,
+    display: 'inline',
   }
 };
 
@@ -68,14 +69,7 @@ class App extends Component {
   }
 
   getRecords = () => {
-    fetch("https://vv2qx5zqb7.execute-api.us-east-1.amazonaws.com/Dev")
-    .then(res => res.json())
-    .then(json => {      
-      const records = json.map(record => record);      
-      this.setState({
-        records: records
-      });
-    });  
+    console.log('getting record');
   }
 
   // handle changes in the form inputs
@@ -118,7 +112,7 @@ class App extends Component {
     const { classes } = this.props;
 
     const displayRecords = records.map((value, index) => 
-      <Card className={classes.card} key={index}>
+      <Card className={classes.card} key={value.id}>
         <CardActionArea>
           <center>
             <CardMedia
@@ -151,8 +145,6 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h3>Welcome to the Server-less Record Shop!</h3>
-          <br></br>
-          <h5>Add A Record</h5>
           <form className={classes.form} id="add-record" onSubmit={this.onSubmit}>
               <EditForm
                 handleChange={this.handleChange}
@@ -162,49 +154,6 @@ class App extends Component {
                 Add Record
               </Button>
           </form> 
-          {/* <form onSubmit={this.handleSubmit}>
-          <input
-            required 
-            type="text" 
-            placeholder="Album"
-            label="album"
-            name="album"
-            value={this.state.album} 
-            onChange={this.handleChange}
-          >
-          </input>
-          <input
-            required 
-            type="text"
-            placeholder="Artist"
-            label="artist"
-            name="artist"
-            value={this.state.artist} 
-            onChange={this.handleChange}
-          >
-          </input>
-          <input
-            required 
-            type="number"
-            placeholder="Year"
-            label="date"
-            name="date"
-            value={this.state.date} 
-            onChange={this.handleChange}
-          >
-          </input>
-          <input
-            required 
-            type='text'
-            placeholder="URL" 
-            label="imageUrl"
-            name="imageUrl"
-            value={this.state.imageUrl} 
-            onChange={this.handleChange}
-          >
-          </input>
-          <button type="submit">Add Record</button>
-        </form> */}
         </div>
         <div className={classes.root}>
           <GridList cellHeight={360} cols={4} className={classes.gridList}>
